@@ -29,4 +29,163 @@ h1 {
 
 #keyboard {
   opacity: 50%;
+  z-index: 0;
+}
+
+.keyboard-container {
+  position: relative;
+}
+
+.keyboard-overlay {
+  position: absolute;
+}
+
+#C1 {
+  position: absolute;
+  left: 443px;
+  top: 16px;
+}
+
+#Csharp1 {
+  position: absolute;
+  left: 477px;
+  top: 13px;
+}
+
+#D1 {
+  position: absolute;
+  left: 498px;
+  top: 17px;
+}
+
+#Dsharp1 {
+  position: absolute;
+  left: 542px;
+  top: 13px;
+}
+
+#E1 {
+  position: absolute;
+  left: 553px;
+  top: 16px;
+}
+
+#F1 {
+  position: absolute;
+  left: 608px;
+  top: 16px;
+}
+
+#Fsharp1 {
+  position: absolute;
+  left: 638px;
+  top: 13px;
+}
+
+#G1 {
+  position: absolute;
+  left: 664px;
+  top: 16px;
+}
+
+#Gsharp1 {
+  position: absolute;
+  left: 702px;
+  top: 13px;
+}
+
+#A1 {
+  position: absolute;
+  left: 718px;
+  top: 16px;
+}
+
+#Asharp1 {
+  position: absolute;
+  left: 766px;
+  top: 13px;
+}
+
+#B1 {
+  position: absolute;
+  left: 774px;
+  top: 16px;
+}
+
+#C2 {
+  position: absolute;
+  left: 829px;
+  top: 16px;
+}
+
+#Csharp2 {
+  position: absolute;
+  left: 863px;
+  top: 13px;
+}
+
+#D2 {
+  position: absolute;
+  left: 884px;
+  top: 17px;
+}
+
+#Dsharp2 {
+  position: absolute;
+  left: 928px;
+  top: 13px;
+}
+
+#E2 {
+  position: absolute;
+  left: 939px;
+  top: 16px;
+}
+
+#F2 {
+  position: absolute;
+  left: 994px;
+  top: 16px;
+}
+
+#Fsharp2 {
+  position: absolute;
+  left: 1025px;
+  top: 13px;
+}
+
+#G2 {
+  position: absolute;
+  left: 1050px;
+  top: 16px;
+}
+
+#Gsharp2 {
+  position: absolute;
+  left: 1088px;
+  top: 13px;
+}
+
+#A2 {
+  position: absolute;
+  left: 1104px;
+  top: 16px;
+}
+
+#Asharp2 {
+  position: absolute;
+  left: 1152px;
+  top: 13px;
+}
+
+#B2 {
+  position: absolute;
+  left: 1160px;
+  top: 16px;
+}
+
+#C3 {
+  position: absolute;
+  left: 443px;
+  top: 16px;
 }
