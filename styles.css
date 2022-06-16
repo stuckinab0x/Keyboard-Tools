@@ -21,6 +21,10 @@ h1 {
   color: white;
 }
 
+h2 {
+  color: white;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -221,4 +225,18 @@ h1 {
 
 #key-display {
   font-size: 5rem;
+}
+
+.options-container {
+  display: flex;
+  align-content: center;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+.option-check {
+  height: 30px;
+  width: 30px;
+  margin: 10px 30px 10px 10px;
+  align-self: center;
 }
