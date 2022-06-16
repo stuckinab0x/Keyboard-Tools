@@ -191,6 +191,10 @@ h1 {
   display: none;
 }
 
+.key-black {
+  filter: brightness(1.8);
+}
+
 .key-show {
   display: block;
 }
