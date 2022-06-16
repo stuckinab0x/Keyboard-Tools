@@ -6,14 +6,20 @@ const checkFlats = document.getElementById('check-flats');
 
 checkSharps.addEventListener('click', () => {
   if (checkFlats.checked) checkFlats.checked = false;
+  checkSharps.blur();
   resetGame();
 })
 checkFlats.addEventListener('click', () => {
   if (checkSharps.checked) checkSharps.checked = false;
+  checkFlats.blur();
   resetGame();
 })
 
-let guessing = false;
+document.addEventListener('keyup', e => {
+  if (e.code === 'Space') generateVisible();
+})
+
+let guessing = false; 
 let currentKey;
 
 const scales = [
@@ -81,8 +87,6 @@ const scales = [
 
 const sharpsOnly = scales.filter(i => i.special.includes('sharp') );
 const flatsOnly = scales.filter(i => i.special.includes('flat') );
-console.log(sharpsOnly[2].name);
-
 
 function generateVisible() {
   if (guessing) {
