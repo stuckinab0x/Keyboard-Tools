@@ -2,11 +2,10 @@
   "name": "keyboard-tools",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
-    "start": "node server"
+    "start": "ts-node server"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stuckinab0x/Keyboard-Tools.git"
