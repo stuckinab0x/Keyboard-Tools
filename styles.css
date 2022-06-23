@@ -204,8 +204,30 @@ h2 {
 }
 
 .lower-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.current-info-container {
+  position: absolute;
+  left: 100px;
   display: flex;
   flex-direction: column;
+}
+
+.mode-display {
+  color: rgb(166, 166, 166);
+  border: rgb(103, 103, 103) solid 5px;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.lower-center-container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
   align-items: center;
 }
 

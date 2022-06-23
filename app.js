@@ -3,14 +3,18 @@ const keyDisplay = document.getElementById('key-display');
 const goButton = document.getElementById('next-button');
 const checkSharps = document.getElementById('check-sharps')
 const checkFlats = document.getElementById('check-flats');
+const modeDisplay = document.getElementById('mode-display');
+
 
 checkSharps.addEventListener('click', () => {
   if (checkFlats.checked) checkFlats.checked = false;
+  checkSharps.checked ? modeDisplay.innerHTML = 'Sharps Only' : modeDisplay.innerHTML = 'All Keys';
   checkSharps.blur();
   resetGame();
 })
 checkFlats.addEventListener('click', () => {
   if (checkSharps.checked) checkSharps.checked = false;
+  checkFlats.checked ? modeDisplay.innerHTML = 'Flats Only' : modeDisplay.innerHTML = 'All Keys';
   checkFlats.blur();
   resetGame();
 })
@@ -26,7 +30,7 @@ const scales = [
   {
     name: 'C Major',
     notes: ['C1', 'D1', 'E1', 'F1', 'G1', 'A1', 'B1', 'C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B2', 'C2', 'B2'],
-    special: ['sharp', 'flat'],
+    special: [],
   },
   {
     name: 'Db Major',
@@ -100,9 +104,9 @@ function generateVisible() {
   let chosenKey;
 
   if (checkSharps.checked) {
-    chosenKey = sharpsOnly[Math.floor(Math.random() * 7)];
+    chosenKey = sharpsOnly[Math.floor(Math.random() * 6)];
   } else if (checkFlats.checked) {
-    chosenKey = flatsOnly[Math.floor(Math.random() * 7)];
+    chosenKey = flatsOnly[Math.floor(Math.random() * 6)];
   } else {
     chosenKey = scales[Math.floor(Math.random() * 12)];
   }
