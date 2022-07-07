@@ -41,6 +41,78 @@ h2 {
   position: relative;
 }
 
+#C0 {
+  position: absolute;
+  left: 57px;
+  top: 16px;
+}
+
+#Csharp0 {
+  position: absolute;
+  left: 91px;
+  top: 13px;
+}
+
+#D0 {
+  position: absolute;
+  left: 112px;
+  top: 17px;
+}
+
+#Dsharp0 {
+  position: absolute;
+  left: 155px;
+  top: 13px;
+}
+
+#E0 {
+  position: absolute;
+  left: 168px;
+  top: 16px;
+}
+
+#F0 {
+  position: absolute;
+  left: 222px;
+  top: 16px;
+}
+
+#Fsharp0 {
+  position: absolute;
+  left: 252px;
+  top: 13px;
+}
+
+#G0 {
+  position: absolute;
+  left: 279px;
+  top: 16px;
+}
+
+#Gsharp0 {
+  position: absolute;
+  left: 316px;
+  top: 13px;
+}
+
+#A0 {
+  position: absolute;
+  left: 332px;
+  top: 16px;
+}
+
+#Asharp0 {
+  position: absolute;
+  left: 380px;
+  top: 13px;
+}
+
+#B0 {
+  position: absolute;
+  left: 388px;
+  top: 16px;
+}
+
 #C1 {
   position: absolute;
   left: 443px;
@@ -187,12 +259,78 @@ h2 {
 
 #C3 {
   position: absolute;
-  left: 443px;
+  left: 1215px;
+  top: 16px;
+}
+
+#Csharp3 {
+  position: absolute;
+  left: 1249px;
+  top: 13px;
+}
+
+#D3 {
+  position: absolute;
+  left: 1270px;
+  top: 17px;
+}
+
+#Dsharp3 {
+  position: absolute;
+  left: 1314px;
+  top: 13px;
+}
+
+#E3 {
+  position: absolute;
+  left: 1325px;
+  top: 16px;
+}
+
+#F3 {
+  position: absolute;
+  left: 1380px;
+  top: 16px;
+}
+
+#Fsharp3 {
+  position: absolute;
+  left: 1411px;
+  top: 13px;
+}
+
+#G3 {
+  position: absolute;
+  left: 1436px;
+  top: 16px;
+}
+
+#Gsharp3 {
+  position: absolute;
+  left: 1474px;
+  top: 13px;
+}
+
+#A3 {
+  position: absolute;
+  left: 1490px;
+  top: 16px;
+}
+
+#Asharp3 {
+  position: absolute;
+  left: 1538px;
+  top: 13px;
+}
+
+#B3 {
+  position: absolute;
+  left: 1546px;
   top: 16px;
 }
 
 .key {
-  display: none;
+  display: block;
 }
 
 .key-black {
@@ -200,7 +338,7 @@ h2 {
 }
 
 .key-show {
-  display: block;
+  /* display: block; */
 }
 
 .lower-container {

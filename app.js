@@ -89,6 +89,69 @@ const scales = [
   }
 ]
 
+const fullScales = [
+  {
+    name: 'C Major',
+    notes: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+    special: [],
+  },
+  {
+    name: 'Db Major',
+    notes: ['C', 'Csharp', 'Dsharp', 'F', 'Fsharp', 'Gsharp', 'Asharp'],
+    special: ['flat'],
+  },
+  {
+    name: 'D Major',
+    notes: ['Csharp', 'D', 'E', 'Fsharp', 'G', 'A', 'B'],
+    special: ['sharp'],
+  },
+  {
+    name: 'Eb Major',
+    notes: ['C', 'D', 'Dsharp', 'F', 'G', 'Gsharp', 'Asharp'],
+    special: ['flat'],
+  },
+  {
+    name: 'E Major',
+    notes: ['Csharp', 'Dsharp', 'E', 'Fsharp', 'Gsharp', 'A', 'B'],
+    special: ['sharp'],
+  },
+  {
+    name: 'F Major',
+    notes: ['C', 'D', 'E', 'F', 'G', 'A', 'Asharp'],
+    special: ['flat'],
+  },
+  {
+    name: 'F# Major/Gb Major',
+    notes: ['Csharp', 'Dsharp', 'F', 'Fsharp', 'Gsharp', 'Asharp', 'B'],
+    special: ['sharp', 'flat'],
+  },
+  {
+    name: 'G Major',
+    notes: ['C', 'D', 'E', 'Fsharp', 'G', 'A', 'B'],
+    special: ['sharp'],
+  },
+  {
+    name: 'Ab Major',
+    notes: ['C', 'Csharp', 'Dsharp', 'F', 'G', 'Gsharp', 'Asharp'],
+    special: ['flat'],
+  },
+  {
+    name: 'A Major',
+    notes: ['Csharp', 'D', 'E', 'Fsharp', 'Gsharp', 'A', 'B'],
+    special: ['sharp'],
+  },
+  {
+    name: 'Bb Major',
+    notes: ['C', 'D', 'Dsharp', 'F', 'G', 'A', 'Asharp'],
+    special: ['flat'],
+  },
+  {
+    name: 'B Major',
+    notes: ['Csharp', 'Dsharp', 'E', 'Fsharp', 'Gsharp', 'Asharp', 'B'],
+    special: ['sharp'],
+  }
+]
+
 const sharpsOnly = scales.filter(i => i.special.includes('sharp') );
 const flatsOnly = scales.filter(i => i.special.includes('flat') );
 
