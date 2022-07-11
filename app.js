@@ -152,8 +152,8 @@ const fullScales = [
   }
 ]
 
-const sharpsOnly = scales.filter(i => i.special.includes('sharp') );
-const flatsOnly = scales.filter(i => i.special.includes('flat') );
+const sharpsOnly = fullScales.filter(i => i.special.includes('sharp') );
+const flatsOnly = fullScales.filter(i => i.special.includes('flat') );
 
 function generateVisible() {
   if (guessing) {
@@ -164,23 +164,25 @@ function generateVisible() {
   }
   
   const start = Math.floor(Math.random() * 7);
-  let chosenKey;
 
-  if (checkSharps.checked) {
-    chosenKey = sharpsOnly[Math.floor(Math.random() * 6)];
-  } else if (checkFlats.checked) {
-    chosenKey = flatsOnly[Math.floor(Math.random() * 6)];
-  } else {
-    chosenKey = scales[Math.floor(Math.random() * 12)];
-  }
-  
+  let chosenKey;
+  do {
+    if (checkSharps.checked) {
+      chosenKey = sharpsOnly[Math.floor(Math.random() * 6)];
+    } else if (checkFlats.checked) {
+      chosenKey = flatsOnly[Math.floor(Math.random() * 6)];
+    } else {
+      chosenKey = fullScales[Math.floor(Math.random() * 12)];
+    }
+  console.log('run');
+  } while (currentKey === chosenKey.name);
+  console.log('pass');
   keyDisplay.innerHTML = '????';
   allKeys.forEach(i => i.classList.remove('key-show'));
   
-  const visible = chosenKey.notes.slice(start, start + 7);
-  
-  visible.forEach(i => {
-    document.getElementById(i).classList.add('key-show');
+  chosenKey.notes.forEach(i => {
+    const keysOfType = Array.from(document.getElementsByClassName(i));
+    keysOfType.forEach(i => i.classList.add('key-show'))
   })
   
   guessing = true;
