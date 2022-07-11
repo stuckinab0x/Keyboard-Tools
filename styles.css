@@ -330,7 +330,7 @@ h2 {
 }
 
 .key {
-  display: block;
+  display: none;
 }
 
 .key-black {
@@ -338,7 +338,7 @@ h2 {
 }
 
 .key-show {
-  /* display: block; */
+  display: block;
 }
 
 .lower-container {
