@@ -1,10 +1,16 @@
 import { FC } from 'react';
+import Scale from '../models/scale';
 import KeyboardOverlay from './Keyboard-Overlay';
 import keyboard from '../images/keyboard.png';
 
-const Keyboard: FC = () => (
+interface KeyboardProps {
+  mode: string;
+  currentKey: Scale;
+}
+
+const Keyboard: FC<KeyboardProps> = ({ mode, currentKey }) => (
   <div className='keyboard-container'>
-    <KeyboardOverlay />
+    <KeyboardOverlay mode={ mode } currentKey={ currentKey }/>
     <img id="keyboard" className="keyboard" src={ keyboard }/>
   </div>
 );

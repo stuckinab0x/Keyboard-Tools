@@ -36,6 +36,7 @@ h2 {
 .keyboard-container {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .keyboard {
@@ -51,17 +52,10 @@ h2 {
   position: relative;
 }
 
-.key {
-  display: none;
-}
 
 .key-black {
   z-index: 10;
   filter: brightness(1.8);
-}
-
-.key-show {
-  display: block;
 }
 
 .lower-container {
@@ -108,7 +102,7 @@ h2 {
   background-color: rgb(148, 149, 148);
 }
 
-#key-display {
+.key-display {
   font-size: 5rem;
 }
 
