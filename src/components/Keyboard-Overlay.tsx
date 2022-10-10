@@ -7,12 +7,12 @@ interface KeyboardOverlayProps {
   currentKey: Scale;
 }
 
-const KeyboardOverlay: FC<KeyboardOverlayProps> = ({ currentKey }) => (
+const KeyboardOverlay: FC<KeyboardOverlayProps> = ({ currentKey, mode }) => (
   <div className='keyboard-overlay'>
-    <Octave octaveNumber={ 0 } currentKey={ currentKey }></Octave>
-    <Octave octaveNumber={ 1 } currentKey={ currentKey }></Octave>
-    <Octave octaveNumber={ 2 } currentKey={ currentKey }></Octave>
-    <Octave octaveNumber={ 3 } currentKey={ currentKey }></Octave>
+    <Octave octaveNumber={ 0 } currentKey={ currentKey } modeIsModes={ mode === 'modes' }></Octave>
+    <Octave octaveNumber={ 1 } currentKey={ currentKey } modeIsModes={ mode === 'modes' }></Octave>
+    <Octave octaveNumber={ 2 } currentKey={ currentKey } modeIsModes={ mode === 'modes' }></Octave>
+    <Octave octaveNumber={ 3 } currentKey={ currentKey } modeIsModes={ mode === 'modes' }></Octave>
   </div>
 );
 

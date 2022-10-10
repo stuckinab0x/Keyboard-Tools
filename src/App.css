@@ -1,6 +1,7 @@
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14pt; 
+  font-size: 14pt;
+  user-select: none;
 }
 
 body {
@@ -73,11 +74,16 @@ h2 {
   flex-direction: column;
 }
 
-.mode-display {
+.mode-display, .modes-display {
   color: rgb(166, 166, 166);
   border: rgb(103, 103, 103) solid 5px;
   border-radius: 5px;
+  margin-top: 30px;
   padding: 7px 10px;
+}
+
+.modes-display > p {
+  font-size: 1.6rem;
 }
 
 .lower-center-container {

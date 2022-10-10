@@ -7,11 +7,17 @@ const keys = ['C', 'Csharp', 'D', 'Dsharp', 'E', 'F', 'Fsharp', 'G', 'Gsharp', '
 interface OctaveProps {
   octaveNumber: number;
   currentKey: Scale;
+  modeIsModes: boolean;
 }
 
-const Octave: FC<OctaveProps> = ({ octaveNumber, currentKey }) => (
+const Octave: FC<OctaveProps> = ({ octaveNumber, currentKey, modeIsModes }) => (
   <>
-    { keys.map(x => currentKey.notes.includes(x) ? <Key key={ x } letter={ x } octaveNumber={ octaveNumber }></Key> : null) }
+    { keys.map(x => {
+      if (modeIsModes && !currentKey.notes.includes(`${ x }${ octaveNumber }`)) return null;
+      if (!modeIsModes && !currentKey.notes.includes(x)) return null;
+
+      return (<Key key={ x } letter={ x } octaveNumber={ octaveNumber }></Key>);
+    }) }
   </>
 );
 

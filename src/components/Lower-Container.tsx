@@ -3,14 +3,19 @@ import { FC, useState, useCallback } from 'react';
 interface LowerContainerProps {
   setMode: (mode: string) => void;
   generateKey: () => void;
+  resetGame: () => void;
+  scaleDisplay: string;
+  guessing: boolean;
+  currentMode: string;
 }
 
-const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey }) => {
+const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey, resetGame, scaleDisplay, guessing, currentMode }) => {
   const [sharpsChecked, setSharpsChecked] = useState(false);
   const [flatsChecked, setFlatsChecked] = useState(false);
   const [modesChecked, setModesChecked] = useState(false);
 
   const handleCheckClick = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    resetGame();
     setSharpsChecked(false);
     setFlatsChecked(false);
     setModesChecked(false);
@@ -32,11 +37,12 @@ const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey }) => {
   return (
   <div className='lower-container'>
   <div className='current-info-container'>
-      <h2 className='mode-display'>Mode: All Keys</h2>
+      <h2 className='mode-display'>{ `Mode: ${ currentMode.charAt(0).toUpperCase() }${ currentMode.slice(1) }` }</h2>
   </div>
   <div className='lower-center-container'>
-      <h1 className='key-display'>????</h1>
+      <h1 className='key-display'>{ scaleDisplay }</h1>
       <div className='modes-display'>
+          <p><b>Mode Names:</b></p>
           <p>1 Ionian (Major)</p>
           <p>2 Dorian</p>
           <p>3 Phrygian</p>
@@ -45,7 +51,7 @@ const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey }) => {
           <p>6 Aeolian (Minor)</p>
           <p>7 Locrian</p>
       </div>
-      <button id='next-button' className='next-button' onClick={ () => generateKey() }>Next Scale</button>
+      <button className='next-button' onClick={ () => generateKey() }>{ guessing ? 'Show Answer' : 'Next Scale' }</button>
       <div className='options-container'>
           <h2>Sharps</h2>
           <input checked={ sharpsChecked } name='sharps' className='option-check' type='checkbox' onChange={ event => handleCheckClick(event) }/>
