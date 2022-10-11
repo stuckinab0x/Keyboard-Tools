@@ -55,9 +55,10 @@ interface LowerContainerCenterProps {
   generateKey: () => void;
   scaleDisplay: string;
   guessing: boolean;
+  showModeHelp: boolean
 }
 
-const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMode, generateKey, scaleDisplay, guessing }) => {
+const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMode, generateKey, scaleDisplay, guessing, showModeHelp }) => {
   const [sharpsChecked, setSharpsChecked] = useState(false);
   const [flatsChecked, setFlatsChecked] = useState(false);
   const [modesChecked, setModesChecked] = useState(false);
@@ -85,7 +86,7 @@ const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMod
   return (
     <LowerContainerCenterMain>
       <h1>{ scaleDisplay }</h1>
-      <ModesDisplay />
+      { showModeHelp ? <ModesDisplay /> : null }
       <NextButton onClick={ () => generateKey() }>{ guessing ? 'Show Answer' : 'Next Scale' }</NextButton>
       <OptionsContainer>
         <h2>Sharps</h2>

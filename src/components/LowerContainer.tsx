@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import LowerContainerCenter from './LowerContainerCenter';
 
@@ -22,7 +22,23 @@ const CurrentInfoContainer = styled.div`
     border-radius: 5px;
     margin-top: 30px;
     padding: 7px 10px;
+    width: max-content;
   }
+
+  > div {
+    display: flex;
+    
+    > h2 {
+      color: white;
+    }
+  }
+`;
+
+const OptionCheck = styled.input`
+  height: 30px;
+  width: 30px;
+  margin: 10px 30px 10px 10px;
+  align-self: center;
 `;
 
 interface LowerContainerProps {
@@ -34,19 +50,28 @@ interface LowerContainerProps {
   currentMode: string;
 }
 
-const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey, resetGame, scaleDisplay, guessing, currentMode }) => (
-  <LowerContainerMain>
-    <CurrentInfoContainer>
-      <h2>{ `Mode: ${ currentMode.charAt(0).toUpperCase() }${ currentMode.slice(1) }` }</h2>
-    </CurrentInfoContainer>
-    <LowerContainerCenter
-      resetGame={ resetGame }
-      setMode={ setMode }
-      generateKey={ generateKey }
-      scaleDisplay={ scaleDisplay }
-      guessing={ guessing }
-    />
-  </LowerContainerMain>
-);
+const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey, resetGame, scaleDisplay, guessing, currentMode }) => {
+  const [showModeHelp, setShowModeHelp] = useState(true);
+
+  return (
+    <LowerContainerMain>
+      <CurrentInfoContainer>
+        <h2>{ `Game Mode: ${ currentMode.charAt(0).toUpperCase() }${ currentMode.slice(1) }` }</h2>
+        <div>
+          <h2>Mode Name Hints</h2>
+          <OptionCheck checked={ showModeHelp } name='showmodes' type='checkbox' onChange={ () => setShowModeHelp(!showModeHelp) }/>
+        </div>
+      </CurrentInfoContainer>
+      <LowerContainerCenter
+        resetGame={ resetGame }
+        setMode={ setMode }
+        generateKey={ generateKey }
+        scaleDisplay={ scaleDisplay }
+        guessing={ guessing }
+        showModeHelp={ showModeHelp }
+      />
+    </LowerContainerMain>
+  );
+};
 
 export default LowerContainer;
