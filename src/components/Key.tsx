@@ -19,7 +19,6 @@ function getKeyImageByLetter(letter: string) {
 interface KeyImageProps {
   blackKey: boolean;
   left: string;
-  top: string;
 }
 
 const blackKeyStyle = css`
@@ -31,7 +30,7 @@ const KeyImage = styled.img<KeyImageProps>`
   ${ props => props.blackKey ? blackKeyStyle : '' }
   position: absolute;
   left: ${ props => props.left }px;
-  top: ${ props => props.top }px;
+  top: ${ props => props.blackKey ? '13' : '16' }px;
 `;
 
 interface KeyProps {
@@ -41,20 +40,15 @@ interface KeyProps {
 
 const Key: FC<KeyProps> = ({ letter, octaveNumber }) => {
   const blackKey = letter.includes('sharp');
-  const fullName = `${ letter }${ String(octaveNumber) }`;
-  const positionData = keyPositions.filter(x => x.keyName === fullName)[0];
+  const positionData = keyPositions.filter(x => x.keyName === letter)[0];
 
   return (
     <KeyImage
       blackKey={ blackKey }
-      left={ positionData.left }
-      top={ positionData.top }
+      left={ String(positionData.left + (386 * octaveNumber)) }
       src={ blackKey ? keyBlack : getKeyImageByLetter(letter) }
-      className={ `key ${ letter.includes('sharp') ? 'key-black' : '' } ${ letter }` }
     />
   );
 };
 
 export default Key;
-
-// id={ `${ letter }${ String(octaveNumber) }` }
