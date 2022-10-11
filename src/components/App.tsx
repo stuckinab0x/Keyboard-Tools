@@ -1,16 +1,37 @@
 import { FC, useState, useCallback } from 'react';
+import { createGlobalStyle } from 'styled-components';
 import Nav from './Nav';
 import Keyboard from './Keyboard';
-import LowerContainer from './Lower-Container';
+import LowerContainer from './LowerContainer';
 import Scale from '../models/scale';
 import { modeScales, fullScales } from '../data/scaleDefinitions';
-import '../App.css';
-import '../keypos.css';
 
 const dummyScale: Scale = {
   name: '',
   notes: [],
 };
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14pt;
+    user-select: none;
+  }
+
+  body {
+    background: linear-gradient(rgb(0, 0, 0) 50%, rgb(38, 38, 38));
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+`;
 
 const App: FC = () => {
   const [gameRules, setGameRules] = useState({ mode: 'all' });
@@ -63,6 +84,7 @@ const App: FC = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <Nav />
       <Keyboard mode={ gameRules.mode } currentKey={ currentKey }/>
       <LowerContainer setMode={ setMode } generateKey={ generateKey } resetGame={ resetGame } scaleDisplay={ scaleDisplay } guessing={ guessing } currentMode={ gameRules.mode }/>
