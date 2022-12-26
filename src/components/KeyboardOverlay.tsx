@@ -14,7 +14,7 @@ interface KeyboardOverlayProps {
 
 const KeyboardOverlay: FC<KeyboardOverlayProps> = ({ currentKey, mode }) => (
   <OverlayMain>
-    { [0, 1, 2, 3, 4].map(x => <Octave octaveNumber={ x } currentKey={ currentKey } modeIsModes={ mode === 'modes' }></Octave>) }
+    { [0, 1, 2, 3, 4].map(x => <Octave key={ x } octaveNumber={ x } currentKey={ currentKey } modeIsModes={ mode === 'modes' }></Octave>) }
   </OverlayMain>
 );
 

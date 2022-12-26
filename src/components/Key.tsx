@@ -27,7 +27,7 @@ const blackKeyStyle = css`
 `;
 
 const KeyImage = styled.img<KeyImageProps>`
-  ${ props => props.blackKey ? blackKeyStyle : '' }
+  ${ props => props.blackKey && blackKeyStyle }
   position: absolute;
   left: ${ props => props.left }px;
   top: ${ props => props.blackKey ? '13' : '16' }px;

@@ -21,6 +21,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: linear-gradient(rgb(0, 0, 0) 50%, rgb(38, 38, 38));
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -73,7 +75,10 @@ const App: FC = () => {
         const partial = Array.from(chosenMode.notes).slice(chosenStart, chosenStart + 7);
         selected = Object.create(chosenMode);
         selected.notes = partial;
-        selected.name = selected.modeDefinition[chosenStart];
+        const modes = ['Ionian (Major)', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian (Minor)', 'Locrian'];
+        let mode = chosenStart - selected.modeRotate;
+        if (Math.sign(mode) === -1) mode += 7;
+        selected.name = `${ selected.modeDefinition[chosenStart] } ${ modes[mode] }`;
       }
       if (gameRules.mode === 'all') selected = fullScales[Math.floor(Math.random() * fullScales.length)];
     } while (selected?.name === currentKey.name);

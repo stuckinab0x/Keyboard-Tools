@@ -10,7 +10,6 @@ const ModesDisplayMain = styled.div`
   right: 146px;
   color: white;
   font-size: 2rem;
-  position: absolute;
 
   > p {
     font-size: 1.6rem;

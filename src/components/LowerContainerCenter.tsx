@@ -1,15 +1,15 @@
 import { FC, useState, useCallback } from 'react';
 import styled from 'styled-components';
-import ModesDisplay from './ModesDisplay';
 
 const LowerContainerCenterMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: center;
   align-items: center;
+  min-width: 50vw;
 
   > h1 {
-    font-size: 5rem;
+    font-size: 4.2rem;
     margin: 20px 20px;
     color: white;
   }
@@ -58,7 +58,7 @@ interface LowerContainerCenterProps {
   showModeHelp: boolean
 }
 
-const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMode, generateKey, scaleDisplay, guessing, showModeHelp }) => {
+const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMode, generateKey, scaleDisplay, guessing }) => {
   const [sharpsChecked, setSharpsChecked] = useState(false);
   const [flatsChecked, setFlatsChecked] = useState(false);
   const [modesChecked, setModesChecked] = useState(false);
@@ -86,7 +86,6 @@ const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMod
   return (
     <LowerContainerCenterMain>
       <h1>{ scaleDisplay }</h1>
-      { showModeHelp ? <ModesDisplay /> : null }
       <NextButton onClick={ () => generateKey() }>{ guessing ? 'Show Answer' : 'Next Scale' }</NextButton>
       <OptionsContainer>
         <h2>Sharps</h2>

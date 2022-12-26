@@ -3,4 +3,5 @@ export default interface Scale {
   notes: string[];
   special?: string[];
   modeDefinition?: string[];
+  modeRotate?: number;
 }
