@@ -1,5 +1,7 @@
 import { FC, useState, useCallback } from 'react';
 import styled from 'styled-components';
+import { GameMode } from '../models/game-rules';
+import { useGameRules } from '../contexts/game-rules-context';
 
 const LowerContainerCenterMain = styled.div`
   display: flex;
@@ -49,19 +51,12 @@ const OptionCheck = styled.input`
   align-self: center;
 `;
 
-interface LowerContainerCenterProps {
-  resetGame: () => void;
-  setMode: (mode: string) => void;
-  generateKey: () => void;
-  scaleDisplay: string;
-  guessing: boolean;
-  showModeHelp: boolean
-}
-
-const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMode, generateKey, scaleDisplay, guessing }) => {
+const LowerContainerCenter: FC = () => {
   const [sharpsChecked, setSharpsChecked] = useState(false);
   const [flatsChecked, setFlatsChecked] = useState(false);
   const [modesChecked, setModesChecked] = useState(false);
+
+  const { resetGame, setMode, generateKey, scaleDisplay, guessing } = useGameRules();
 
   const handleCheckClick = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     resetGame();
@@ -80,7 +75,7 @@ const LowerContainerCenter: FC<LowerContainerCenterProps> = ({ resetGame, setMod
     else if (name === 'flats') setFlatsChecked(true);
     else setModesChecked(true);
 
-    setMode(name);
+    setMode(name as GameMode);
   }, [sharpsChecked, flatsChecked, modesChecked]);
 
   return (

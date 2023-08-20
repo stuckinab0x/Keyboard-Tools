@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { useGameRules } from '../contexts/game-rules-context';
 
 const CurrentInfoContainerMain = styled.div`
   display: flex;
@@ -32,20 +33,23 @@ const OptionCheck = styled.input`
 `;
 
 interface CurrentInfoContainerProps {
-  currentMode: string;
   showModeHelp: boolean;
   setShowModeHelp: (show: boolean) => void;
 }
 
-const CurrentInfoContainer: FC<CurrentInfoContainerProps> = ({ currentMode, showModeHelp, setShowModeHelp }) => (
+const CurrentInfoContainer: FC<CurrentInfoContainerProps> = ({ showModeHelp, setShowModeHelp }) => {
+  const { gameRules } = useGameRules();
+
+  return (
     <CurrentInfoContainerMain>
-      <h2>{ `Game Mode: ${ currentMode.charAt(0).toUpperCase() }${ currentMode.slice(1) }` }</h2>
+      <h2>{ `Game Mode: ${ gameRules.mode.charAt(0).toUpperCase() }${ gameRules.mode.slice(1) }` }</h2>
         <div>
           <h2>Mode Name Hints</h2>
           <OptionCheck checked={ showModeHelp } name='showmodes' type='checkbox' onChange={ () => setShowModeHelp(!showModeHelp) }/>
         </div>
 
     </CurrentInfoContainerMain>
-);
+  );
+};
 
 export default CurrentInfoContainer;

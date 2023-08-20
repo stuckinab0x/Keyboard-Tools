@@ -12,32 +12,16 @@ const LowerContainerMain = styled.div`
 `;
 
 const ModesContainer = styled.div`
-  width: 20vw
+  width: 20vw;
 `;
 
-interface LowerContainerProps {
-  setMode: (mode: string) => void;
-  generateKey: () => void;
-  resetGame: () => void;
-  scaleDisplay: string;
-  guessing: boolean;
-  currentMode: string;
-}
-
-const LowerContainer: FC<LowerContainerProps> = ({ setMode, generateKey, resetGame, scaleDisplay, guessing, currentMode }) => {
+const LowerContainer: FC = () => {
   const [showModeHelp, setShowModeHelp] = useState(true);
 
   return (
     <LowerContainerMain>
-      <CurrentInfoContainer currentMode={ currentMode } showModeHelp={ showModeHelp } setShowModeHelp={ setShowModeHelp } />
-      <LowerContainerCenter
-        resetGame={ resetGame }
-        setMode={ setMode }
-        generateKey={ generateKey }
-        scaleDisplay={ scaleDisplay }
-        guessing={ guessing }
-        showModeHelp={ showModeHelp }
-      />
+      <CurrentInfoContainer showModeHelp={ showModeHelp } setShowModeHelp={ setShowModeHelp } />
+      <LowerContainerCenter />
       <ModesContainer>
         { showModeHelp && <ModesDisplay /> }
       </ModesContainer>

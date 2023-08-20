@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Scale from '../models/scale';
 import KeyboardOverlay from './KeyboardOverlay';
 import keyboard from '../images/keyboard.png';
 
@@ -15,14 +14,9 @@ const KeyboardImage = styled.img`
   z-index: 0;
 `;
 
-interface KeyboardProps {
-  mode: string;
-  currentKey: Scale;
-}
-
-const Keyboard: FC<KeyboardProps> = ({ mode, currentKey }) => (
+const Keyboard: FC = () => (
   <KeyBoardContainer>
-    <KeyboardOverlay mode={ mode } currentKey={ currentKey }/>
+    <KeyboardOverlay />
     <KeyboardImage src={ keyboard }/>
   </KeyBoardContainer>
 );
