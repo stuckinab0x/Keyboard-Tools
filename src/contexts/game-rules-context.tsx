@@ -1,4 +1,4 @@
-import React, { FC, createContext, useContext, useCallback, useState, useMemo, ReactNode } from 'react';
+import { FC, createContext, useContext, useCallback, useState, useMemo, ReactNode } from 'react';
 import GameRules, { GameMode } from '../models/game-rules';
 import Scale from '../models/scale';
 import { modeScales, fullScales } from '../data/scaleDefinitions';
@@ -39,7 +39,7 @@ const GameRulesProvider: FC<GameRulesProviderProps> = ({ children }) => {
   const [gameRules, setGameRules] = useState<GameRules>({ mode: 'all' });
   const setMode = useCallback((newMode: GameMode) => {
     setGameRules(oldState => ({ ...oldState, mode: newMode }));
-  }, [gameRules.mode]);
+  }, []);
 
   const [guessing, setGuessing] = useState(false);
   const [scaleDisplay, setScaleDisplay] = useState('????');
@@ -95,7 +95,7 @@ const GameRulesProvider: FC<GameRulesProviderProps> = ({ children }) => {
     resetGame,
     generateKey,
     setMode,
-  }), [gameRules, scaleDisplay, guessing, resetGame, generateKey, setMode]);
+  }), [gameRules, scaleDisplay, guessing, resetGame, generateKey, setMode, currentKey]);
 
   return (
     <GameRulesContext.Provider value={ context }>

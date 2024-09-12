@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Nav from './Nav';
-import Keyboard from './Keyboard';
-import LowerContainer from './LowerContainer';
-import GameRulesProvider from '../contexts/game-rules-context';
+import Nav from './components/Nav';
+import Keyboard from './components/Keyboard';
+import LowerContainer from './components/LowerContainer';
+import GameRulesProvider from './contexts/game-rules-context';
 
 const GlobalStyle = createGlobalStyle`
   html {
